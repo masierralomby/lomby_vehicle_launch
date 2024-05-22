@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
+  <include file="$(find-pkg-share lomby_api)/launch/base_apis.launch.py"/>
+  <include file="$(find-pkg-share lomby_can_to_ros2msg_converter)/launch/socket_can_receiver.launch.py"/>
+  <include file="$(find-pkg-share lomby_sound_manager)/launch/sound.launch.py"/>
+  <include file="$(find-pkg-share lomby_led_manager)/launch/led_manager.launch.py"/>
+  <include file="$(find-pkg-share lomby_drive_train)/launch/mc3000u_autoware.launch.py"/>
+
+  <node pkg="lomby_usb_shutter_driver" exec="usb_shutter_driver" output="screen" />
 </launch>
